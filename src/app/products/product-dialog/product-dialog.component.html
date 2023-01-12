@@ -1,0 +1,21 @@
+<div mat-dialog-content class="container">
+  <div class="row">
+    <div class="col-md-7" style="text-align: center; align-self: center;">
+      <img [src]="data.image" class="img-fluid" style="width: inherit; height: auto;" />
+    </div>
+    <div class="col-md-5">
+      <h3 mat-dialog-title><b>{{data.title}}</b></h3>
+      <ul style="list-style: none; padding-left: 0%;">
+        <p><strong>{{data.price}}</strong></p>
+        <p style="text-transform: capitalize;"><b><i>{{data.category}}</i></b></p>
+        <p style="text-align: justify;"><i>{{data.description}}</i></p>
+        <p><strong>Rate:</strong> {{data.rating.rate}}</p>
+        <p><strong>Count:</strong> {{data.rating.count}}</p>
+      </ul>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions class="pull-right">
+  <button mat-button (click)="onNoClick()" style="text-transform: uppercase;">Close</button>
+  <button mat-button cdkFocusInitial style="text-transform: uppercase;">Add to cart</button>
+</div>
