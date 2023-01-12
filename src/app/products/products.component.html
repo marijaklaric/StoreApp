@@ -1,4 +1,16 @@
-<p>products works!</p>
-<div *ngFor="let p of products">
-    <label> {{ p.title }}</label>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 mb-5" *ngFor="let p of products">
+      <div class="card h-100">
+        <div class="bg-image m-2" mdbRipple rippleColor="light" style="text-align: center;">
+          <img [src]="p.image" class="img-fluid" style="width: auto; height: 100px;" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title" style="height: max-content;">{{ p.title }}</h5>
+          <p class="card-text"><small class="text-muted">{{ p.description.slice(0, 75)}}...</small></p>
+          <p class="card-text">{{p.price}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
