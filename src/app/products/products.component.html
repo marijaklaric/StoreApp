@@ -1,16 +1,35 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3 mb-5" *ngFor="let product of products">
-      <div class="card h-100">
-        <div class="bg-image m-3" mdbRipple rippleColor="light" style="text-align: center; align-self: center;">
-          <img [src]="product.image" class="img-fluid" style="width: auto; height: 150px; object-fit: contain;" />
+    <div class="col-md-3">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-md-9">
+      <form (submit)="getProducts()">
+        <div class="row mb-3">
+          <div class="col-sm-6">
+            <input class="form-control " type="number" id="limit" [(ngModel)]="limit" name="limit" placeholder="Limit">
+          </div>
+          <div class="col-sm-6 pull-right">
+            <button class="btn btn-primary" type="submit">Get Products</button>
+          </div>
         </div>
-        <div class="card-body">
-          <h4 mat-card-title style="text-align: center;"><b>{{ product.title }}</b></h4>
-          <p class="card-text" style="text-align: center;">{{product.price}}</p>
-        </div>
-        <div class="card-footer" style="text-align: center;">
-          <button mat-raised-button (click)="openDialog(product)" style="text-transform: uppercase;">View more</button>
+      </form>
+
+      <div class="row">
+        <div class="col-md-3 mb-5" *ngFor="let product of products">
+          <div class="card h-100">
+            <div class="bg-image m-3" mdbRipple rippleColor="light" style="text-align: center; align-self: center;">
+              <img [src]="product.image" class="img-fluid" style="width: auto; height: 150px; object-fit: contain;" />
+            </div>
+            <div class="card-body">
+              <h4 mat-card-title style="text-align: center;"><b>{{ product.title }}</b></h4>
+              <p class="card-text" style="text-align: center;">{{product.price}}</p>
+            </div>
+            <div class="card-footer" style="text-align: center;">
+              <button mat-raised-button (click)="openDialog(product)" style="text-transform: uppercase;">View
+                more</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
