@@ -5,10 +5,6 @@ header {
   font-weight: 500;
   text-transform: uppercase;
   color: #333;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  position:relative;
   z-index: 100;
 }
 
@@ -26,6 +22,7 @@ header ul li{
 header .navbar-buttons {
   display: block;
   color: #6c757d !important;
+  line-height: 36px;
 }
 
 header .navbar-buttons li {
