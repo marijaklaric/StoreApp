@@ -16,6 +16,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { ProductDialogComponent } from './products/product-dialog/product-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
+import { AppSidebarComponent } from './app-sidebar/app-sidebar.component';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -23,11 +27,14 @@ import { MatCardModule } from '@angular/material/card';
     ProductsComponent,
     AppHeaderComponent,
     AppFooterComponent,
-    ProductDialogComponent
+    ProductDialogComponent,
+    AppSidebarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     HttpClientModule,
     NgbCollapseModule,
     BrowserAnimationsModule,
@@ -35,7 +42,9 @@ import { MatCardModule } from '@angular/material/card';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule,
+    NgbCollapseModule
   ],
   providers: [
     ProductsService

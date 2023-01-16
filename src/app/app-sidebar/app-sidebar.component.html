@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="sidebar" style="text-transform: capitalize;">
+    <h3 (click)="toggleSidebar()">
+      <span>CATEGORIES </span>
+      <i [ngClass]="{'fa fa-angle-up': sidebarOpen, 'fa fa-angle-down': !sidebarOpen}" class="fa pull-right"></i>
+    </h3>
+    <!-- <h3 (click)="toggleSidebar()" [ngClass]="{'fa fa-angle-down': sidebarOpen, 'fa fa-angle-up': !sidebarOpen}" >CATEGORIES <i class="fa"></i></h3>
+ -->
+    <ul class="nav nav-pills flex-column"  [ngClass]="{'collapse': !sidebarOpen}">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/products']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">All</a>
+      </li>
+      <li class="nav-item" *ngFor="let category of productCategories">
+        <a class="nav-link" [routerLink]="['/products/category/', category]"routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{category}}</a>
+      </li>
+    </ul>
+  </div>
+</div>
