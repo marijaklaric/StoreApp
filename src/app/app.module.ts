@@ -18,7 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { AppSidebarComponent } from './app-sidebar/app-sidebar.component';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
@@ -44,7 +44,8 @@ import { HomeComponent } from './home/home.component';
     MatButtonModule,
     MatCardModule,
     FormsModule,
-    NgbCollapseModule
+    NgbCollapseModule,
+    ReactiveFormsModule
   ],
   providers: [
     ProductsService

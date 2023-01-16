@@ -17,6 +17,7 @@ export class ProductsService {
     getProducts(): Observable<Products[]> {
       return this.http.get<Products[]>(environment.baseAPI + "products");
     }
+
     getProductsByCategory(id): Observable<Products[]> {
       return this.http.get<Products[]>(environment.baseAPI + "products/category/" + id);
     }
@@ -25,5 +26,9 @@ export class ProductsService {
       let params = new HttpParams();
       params = params.append('limit', limit.toString());
       return this.http.get<Products[]>(environment.baseAPI + 'products', { params });
+    }
+
+    putProduct(id, product: Products): Observable<Products> {
+      return this.http.put<Products>(environment.baseAPI + "products/" + id, product);
     }
   }
