@@ -4,17 +4,6 @@
       <app-sidebar></app-sidebar>
     </div>
     <div class="col-md-9">
-      <form (submit)="getProducts()">
-        <div class="row mb-3">
-          <div class="col-sm-6">
-            <input class="form-control " type="number" id="limit" [(ngModel)]="limit" name="limit" placeholder="Limit">
-          </div>
-          <div class="col-sm-6 pull-right">
-            <button class="btn btn-primary" type="submit">Get Products</button>
-          </div>
-        </div>
-      </form>
-
       <div class="row">
         <div class="col-md-3 mb-5" *ngFor="let product of products">
           <div class="card h-100">
@@ -26,8 +15,8 @@
               <p class="card-text" style="text-align: center;">{{product.price}}</p>
             </div>
             <div class="card-footer" style="text-align: center;">
-              <button mat-raised-button (click)="openDialog(product)" style="text-transform: uppercase;">View
-                more</button>
+              <button mat-raised-button (click)="openDialog(product)" style="text-transform: uppercase;">Preview</button>
+              <button mat-raised-button (click)="editProduct(product.id)" style="text-transform: uppercase;">Edit</button>
             </div>
           </div>
         </div>

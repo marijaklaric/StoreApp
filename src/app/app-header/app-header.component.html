@@ -1,9 +1,10 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
+      <a class="nav-link" href="/">
       <img class="header-logo"
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX7it20u5SKJBAaBk8KJ57EtQezcSVEl6Unw&usqp=CAU"
-        alt="Company Logo">
+        alt="Company Logo"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
         (click)="toggleNavbar = !toggleNavbar">
@@ -11,34 +12,22 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNav" [ngbCollapse]="toggleNavbar">
-        <div>
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav mx-auto">
             <li class="nav-item">
               <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/products">Products</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/products">Page</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/products">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/products">Contacts</a>
-            </li>
           </ul>
-        </div>
-        <div class="navbar-right navbar-buttons">
+<!--         <div class="navbar-right navbar-buttons">
           <ul class="my-2">
             <li class="navbar-button-icons"><i class="fa fa-search" aria-hidden="true"></i></li>
             <li class="navbar-button-icons"><i class="fa fa-user" aria-hidden="true"></i></li>
             <li class="navbar-button-icons"><i class="fa fa-shopping-cart" aria-hidden="true"></i></li>
           </ul>
-        </div>
+        </div> -->
       </div>
     </div>
   </nav>
-  <!--    -->
 </header>

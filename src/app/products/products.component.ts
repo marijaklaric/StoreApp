@@ -13,7 +13,7 @@ import { ProductsService } from './services/products.service';
 export class ProductsComponent implements OnInit {
   public products: Products[];
   public categoryId: string;
-  public limit: number = 6;
+  //public limit: number = 6;
 
   constructor(
     private productsService: ProductsService,
@@ -40,7 +40,7 @@ export class ProductsComponent implements OnInit {
       );
   }
 
-  getProducts2() {
+  getProducts() {
     this.productsService.getProducts()
       .subscribe(products => this.products = products);
   }
@@ -61,9 +61,13 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  getProducts() {
+/*   getProducts() {
     this.productsService.getLimitedProducts(this.limit).subscribe(data => {
       this.products = data;
     });
+  } */
+
+  editProduct(productId){
+   this.router.navigateByUrl("products/" + productId);
   }
 }
