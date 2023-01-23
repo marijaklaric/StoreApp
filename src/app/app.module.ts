@@ -20,6 +20,7 @@ import { AppSidebarComponent } from './app-sidebar/app-sidebar.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { ProductComponent } from './products/product/product.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HomeComponent } from './home/home.component';
     AppFooterComponent,
     ProductDialogComponent,
     AppSidebarComponent,
-    HomeComponent
+    HomeComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
@@ -43,9 +45,8 @@ import { HomeComponent } from './home/home.component';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    FormsModule,
-    NgbCollapseModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [
     ProductsService

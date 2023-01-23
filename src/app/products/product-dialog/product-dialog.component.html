@@ -1,9 +1,9 @@
 <div mat-dialog-content class="container">
   <div class="row">
     <div class="col-md-7" style="text-align: center; align-self: center;">
-      <img [src]="data.image" class="img-fluid" style="width: inherit; height: auto;" />
+      <img [src]="data.image" class="img-fluid mb-3" style="width: inherit; height: auto;" />
     </div>
-    <div class="col-md-5" *ngIf="!editMode">
+    <div class="col-md-5">
       <h3 mat-dialog-title><b>{{data.title}}</b></h3>
       <ul style="list-style: none; padding-left: 0%;">
         <p><strong>{{data.price}}</strong></p>
@@ -13,25 +13,9 @@
         <p><strong>Count:</strong> {{data.rating.count}}</p>
       </ul>
     </div>
-    <div class="col-md-5" *ngIf="editMode">
-      <form [formGroup]="form">
-        <input type="hidden" class="form-control" formControlName="id">
-        <h3 mat-dialog-title><b><input type="text" formControlName="title" class="col-md-12"></b></h3>
-        <ul style="list-style: none; padding-left: 0%;">
-          <p><strong><input type="text" formControlName="price" class="col-md-12"></strong></p>
-          <p style="text-transform: capitalize;"><b><i><input type="text" formControlName="category" class="col-md-12"></i></b></p>
-          <p style="text-align: justify;"><i><input type="text" formControlName="description" class="col-md-12"></i></p>
-          <p><strong>Rate:</strong><input type="text" formControlName="rate" class="col-md-12"></p>
-          <p><strong>Count:</strong><input type="text" formControlName="count" class="col-md-12"></p>
-        </ul>
-      </form>
-    </div>
   </div>
 </div>
 <div mat-dialog-actions class="pull-right">
   <button mat-button (click)="onNoClick()" style="text-transform: uppercase;">Close</button>
-  <button mat-button (click)="toggleEditMode();" style="text-transform: uppercase;" *ngIf="!editMode">Edit</button>
-  <button mat-button (click)="onEdit(form); toggleEditMode();" style="text-transform: uppercase;"
-    *ngIf="editMode">Save</button>
-  <button mat-button cdkFocusInitial style="text-transform: uppercase;">Add to cart</button>
+ <!--  <button mat-button cdkFocusInitial style="text-transform: uppercase;">Add to cart</button> -->
 </div>

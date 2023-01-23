@@ -31,4 +31,8 @@ export class ProductsService {
     putProduct(id, product: Products): Observable<Products> {
       return this.http.put<Products>(environment.baseAPI + "products/" + id, product);
     }
+
+    getProduct(productId: number): Observable<Products> {
+      return this.http.get<Products>(environment.baseAPI + "products/" + productId);
+    }
   }
