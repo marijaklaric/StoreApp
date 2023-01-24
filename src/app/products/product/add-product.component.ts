@@ -20,6 +20,7 @@ export class AddProductComponent implements OnInit {
   public categories: [string];
   isLoaded: boolean = false;
   isEditMode: boolean = false;
+  public loading: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,6 +32,7 @@ export class AddProductComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loading = true;
     this.isEditMode = false;
     this.addNew();
   }
@@ -43,6 +45,7 @@ export class AddProductComponent implements OnInit {
       this.productForm();
       this.form.enable();
     }
+    this.loading = false;
   }
 
   productForm() {

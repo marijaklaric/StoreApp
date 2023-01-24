@@ -13,6 +13,7 @@ import { ProductsService } from './services/products.service';
 export class ProductsComponent implements OnInit {
   public products: Products[];
   public categoryId: string;
+  public loading: boolean = false;
   //public limit: number = 6;
 
   constructor(
@@ -22,6 +23,7 @@ export class ProductsComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    this.loading = true;
     this.getRouteParams();
   }
 
@@ -38,6 +40,7 @@ export class ProductsComponent implements OnInit {
           }
         }
       );
+      this.loading = false;
   }
 
   getProducts() {

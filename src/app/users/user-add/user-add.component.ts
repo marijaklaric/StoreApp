@@ -13,6 +13,7 @@ export class UserAddComponent implements OnInit {
   public user: User;
   public form: FormGroup;
   isLoaded: boolean = false;
+  public loading: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,6 +21,7 @@ export class UserAddComponent implements OnInit {
     private userService: UsersService) { }
 
   ngOnInit(): void {
+    this.loading = true;
     this.addNew();
   }
 
@@ -30,6 +32,7 @@ export class UserAddComponent implements OnInit {
       this.userForm();
       this.form.enable();
     }
+    this.loading = false;
   }
 
   userForm() {

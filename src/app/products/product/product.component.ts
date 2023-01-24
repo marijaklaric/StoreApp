@@ -20,6 +20,7 @@ export class ProductComponent implements OnInit {
   public categories: [string];
   isLoaded: boolean = false;
   isEditMode: boolean = true;
+  public loading: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,6 +32,7 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loading = true;
     this.isEditMode = true;
     this.getRouteParams();
   }
@@ -46,6 +48,7 @@ export class ProductComponent implements OnInit {
           }
         }
       );
+      this.loading = false;
   }
 
   getProduct(productId: number) {

@@ -15,12 +15,15 @@ export class UserComponent implements OnInit {
   public form: FormGroup;
   isLoaded: boolean = false;
   isEditMode: boolean = true;
+  public loading: boolean = false;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private userService: UsersService) { }
 
   ngOnInit(): void {
+    this.loading = true;
     this.isEditMode = true;
     this.getRouteParams();
   }
@@ -35,6 +38,7 @@ export class UserComponent implements OnInit {
           }
         }
       );
+      this.loading = false;
   }
 
   getUser(userId: number) {

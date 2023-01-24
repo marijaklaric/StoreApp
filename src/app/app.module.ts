@@ -27,6 +27,9 @@ import { UsersComponent } from './users/users.component';
 import { UsersService } from './users/services/users.service';
 import { UserComponent } from './users/user/user.component';
 import { UserAddComponent } from './users/user-add/user-add.component';
+import { CartComponent } from './cart/cart.component';
+import { CartService } from './cart/services/cart.service';
+import { NgxLoadingModule } from 'ngx-loading';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,8 @@ import { UserAddComponent } from './users/user-add/user-add.component';
     AddProductComponent,
     UsersComponent,
     UserComponent,
-    UserAddComponent
+    UserAddComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -57,11 +61,13 @@ import { UserAddComponent } from './users/user-add/user-add.component';
     MatButtonModule,
     MatCardModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    NgxLoadingModule.forRoot({}),
   ],
   providers: [
     ProductsService,
-    UsersService
+    UsersService,
+    CartService
   ],
   bootstrap: [AppComponent]
 })

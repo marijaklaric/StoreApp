@@ -13,6 +13,7 @@ import { UsersService } from './services/users.service';
 })
 export class UsersComponent implements OnInit {
   public users: User[];
+  public loading: boolean = false;
 
   constructor(
     private usersService: UsersService,
@@ -21,12 +22,14 @@ export class UsersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loading = true;
     this.getUsers();
   }
 
   getUsers() {
     this.usersService.getUsers()
       .subscribe(users => this.users = users);
+      this.loading = false;
   }
 
   openEditUser(userId: number){
