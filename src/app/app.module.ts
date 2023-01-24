@@ -25,6 +25,7 @@ import { ConfirmationDialogComponent } from './products/confirmation-dialog/conf
 import { AddProductComponent } from './products/product/add-product.component';
 import { UsersComponent } from './users/users.component';
 import { UsersService } from './users/services/users.service';
+import { UserComponent } from './users/user/user.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { UsersService } from './users/services/users.service';
     ProductComponent,
     ConfirmationDialogComponent,
     AddProductComponent,
-    UsersComponent
+    UsersComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

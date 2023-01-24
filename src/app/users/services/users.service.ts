@@ -16,19 +16,19 @@ export class UsersService {
     getUsers(): Observable<User[]> {
       return this.http.get<User[]>(environment.baseAPI + "users");
     }
+
+    getUser(userId: number): Observable<User> {
+      return this.http.get<User>(environment.baseAPI + "users/" + userId);
+    }
+
+    putUser(id, user: User): Observable<User> {
+      return this.http.put<User>(environment.baseAPI + "users/" + id, user);
+    }
+
+    deleteUser(userId: number): Observable<User> {
+      return this.http.delete<User>(environment.baseAPI + "users/" + userId);
+    }
 /*
-    putUser(id, product: Products): Observable<Products> {
-      return this.http.put<Products>(environment.baseAPI + "products/" + id, product);
-    }
-
-    getUser(productId: number): Observable<Products> {
-      return this.http.get<Products>(environment.baseAPI + "products/" + productId);
-    }
-
-    deleteUser(productId: number): Observable<Products> {
-      return this.http.delete<Products>(environment.baseAPI + "products/" + productId);
-    }
-
     postUser(product: Products): Observable<Products> {
       return this.http.post<Products>(environment.baseAPI + "products", product);
     } */

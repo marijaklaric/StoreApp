@@ -1,5 +1,5 @@
 <div class="container">
-  <table class="table table-bordered table-striped table-hover">
+  <table class="table table-bordered table-hover">
     <thead>
       <tr>
         <th>ID</th>
@@ -14,15 +14,16 @@
     <tbody>
       <tr *ngFor="let user of users">
         <td>{{ user.id }}</td>
-        <td>{{ user.name.firstname }} {{user.name.lastname}}</td>
+        <td style="text-transform:capitalize;">{{ user.name.firstname }} {{user.name.lastname}}</td>
         <td>{{ user.username }}</td>
         <td>{{ user.email }}</td>
         <td>{{ user.phone }}</td>
-        <td>{{ user.address.street }}, {{ user.address.city }}</td>
+        <td style="text-transform:capitalize;">{{ user.address.street }}, {{ user.address.city }}</td>
         <td>
-          <!-- <button mat-raised-button (click)="openEditUser(user.id)" style="text-transform: uppercase; width: max-content;">Edit</button>
-          <button mat-raised-button (click)="deleteUser(user.id)" style="text-transform: uppercase; width: max-content;">Delete</button>
-       --></tr>
+          <button mat-raised-button (click)="openEditUser(user.id)" style="text-transform: uppercase; width: max-content; margin-right: 2%;">Edit</button>
+<!--           <button mat-raised-button (click)="deleteUser(user)" style="text-transform: uppercase; width: max-content;">Delete</button> -->
+          <button mat-raised-button (click)="openConfirmationDialog(user)" style="text-transform: uppercase; width: max-content;">Delete</button>
+       </tr>
     </tbody>
   </table>
 </div>
