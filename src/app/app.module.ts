@@ -23,6 +23,8 @@ import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './products/product/product.component';
 import { ConfirmationDialogComponent } from './products/confirmation-dialog/confirmation-dialog.component';
 import { AddProductComponent } from './products/product/add-product.component';
+import { UsersComponent } from './users/users.component';
+import { UsersService } from './users/services/users.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { AddProductComponent } from './products/product/add-product.component';
     HomeComponent,
     ProductComponent,
     ConfirmationDialogComponent,
-    AddProductComponent
+    AddProductComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ import { AddProductComponent } from './products/product/add-product.component';
     NgbModule
   ],
   providers: [
-    ProductsService
+    ProductsService,
+    UsersService
   ],
   bootstrap: [AppComponent]
 })
