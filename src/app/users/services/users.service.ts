@@ -28,8 +28,8 @@ export class UsersService {
     deleteUser(userId: number): Observable<User> {
       return this.http.delete<User>(environment.baseAPI + "users/" + userId);
     }
-/*
-    postUser(product: Products): Observable<Products> {
-      return this.http.post<Products>(environment.baseAPI + "products", product);
-    } */
+
+    postUser(user: User): Observable<User> {
+      return this.http.post<User>(environment.baseAPI + "users", user);
+    }
   }

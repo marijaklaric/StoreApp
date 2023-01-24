@@ -1,0 +1,73 @@
+<div class="container" *ngIf="form">
+  <i class="fa fa-chevron-left" aria-hidden="true" (click)="onBack()"></i>
+  <div class="row mt-3">
+    <form [formGroup]="form">
+      <div class="row">
+        <div class="col-md-8">
+          <input type="hidden" class="form-control" formControlName="id">
+          <div class="row">
+            <div class="form-group mb-3">
+              <label>First Name:</label>
+              <input type="text" class="form-control" formControlName="firstname">
+            </div>
+            <div class="form-group mb-3">
+              <label>Last Name:</label>
+              <input type="text" class="form-control" formControlName="lastname">
+            </div>
+            <div class="form-group mb-3">
+              <label>Phone:</label>
+              <input type="text" class="form-control" formControlName="phone">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group mb-3">
+              <label>Email:</label>
+              <input type="text" class="form-control" formControlName="email">
+            </div>
+            <div class="form-group mb-3">
+              <label>Username:</label>
+              <input type="text" class="form-control" formControlName="username">
+            </div>
+            <div class="form-group mb-3">
+              <label>Password:</label>
+              <input type="text" class="form-control" formControlName="password">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group mb-3">
+            <label for="price">Street:</label>
+            <input type="text" class="form-control" formControlName="street">
+          </div>
+          <div class="form-group mb-3">
+            <label for="price">City:</label>
+            <input type="text" class="form-control" formControlName="city">
+          </div>
+          <div class="form-group mb-3">
+            <label for="price">Number:</label>
+            <input type="text" class="form-control" formControlName="number">
+          </div>
+          <div class="form-group mb-3">
+            <label for="price">ZIP:</label>
+            <input type="text" class="form-control" formControlName="zipcode">
+          </div>
+          <div class="form-group mb-3">
+            <label for="price">Lat:</label>
+            <input type="text" class="form-control" formControlName="lat">
+          </div>
+          <div class="form-group mb-3">
+            <label for="price">Long:</label>
+            <input type="text" class="form-control" formControlName="long">
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <button class="btn btn-primary" (click)="onSubmit(form);"
+                style="text-transform: uppercase; width: 100%;" *ngIf="form.enabled">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

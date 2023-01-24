@@ -5,8 +5,10 @@ export class User {
   password: string;
   name: {
     firstname: string;
-    lastname: string
+    lastname: string;
   };
+  firstname: string;
+  lastname: string;
   phone: string;
   __v: number;
   address: {

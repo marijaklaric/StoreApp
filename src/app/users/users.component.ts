@@ -60,4 +60,8 @@ export class UsersComponent implements OnInit {
       }
     });
   }
+
+  addNewUser(): void {
+    this.router.navigateByUrl('/add-user');
+  }
 }

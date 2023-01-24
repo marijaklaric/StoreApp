@@ -26,6 +26,7 @@ import { AddProductComponent } from './products/product/add-product.component';
 import { UsersComponent } from './users/users.component';
 import { UsersService } from './users/services/users.service';
 import { UserComponent } from './users/user/user.component';
+import { UserAddComponent } from './users/user-add/user-add.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { UserComponent } from './users/user/user.component';
     ConfirmationDialogComponent,
     AddProductComponent,
     UsersComponent,
-    UserComponent
+    UserComponent,
+    UserAddComponent
   ],
   imports: [
     BrowserModule,
