@@ -35,4 +35,8 @@ export class ProductsService {
     getProduct(productId: number): Observable<Products> {
       return this.http.get<Products>(environment.baseAPI + "products/" + productId);
     }
+
+    deleteProduct(productId: number): Observable<Products> {
+      return this.http.delete<Products>(environment.baseAPI + "products/" + productId);
+    }
   }

@@ -40,10 +40,19 @@
               <input type="text" class="form-control" formControlName="count">
             </div>
           </div>
-          <button class="btn btn-primary" (click)="toggleEditMode();" style="text-transform: uppercase; width: 100%;"
-            *ngIf="form.disabled">Edit</button>
-          <button class="btn btn-primary" (click)="onEdit(form); toggleEditMode();" style="text-transform: uppercase; width: 100%;"
-            *ngIf="form.enabled">Save</button>
+          <div class="row">
+            <div class="col-md-6" *ngIf="form.disabled">
+              <button class="btn btn-primary col-md-6" (click)="toggleEditMode();"
+                style="text-transform: uppercase; width: 100%;">Edit</button>
+            </div>
+            <div class="col-md-6" *ngIf="form.disabled">
+              <button class="btn btn-primary" (click)="openConfirmationDialog();"
+                style="text-transform: uppercase; width: 100%;">
+                Delete</button>
+            </div>
+            <button class="btn btn-primary" (click)="onEdit(form); toggleEditMode();"
+              style="text-transform: uppercase; width: 100%;" *ngIf="form.enabled">Save</button>
+          </div>
         </div>
       </div>
     </form>
