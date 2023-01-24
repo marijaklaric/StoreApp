@@ -21,6 +21,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './products/product/product.component';
+import { ConfirmationDialogComponent } from './products/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ProductComponent } from './products/product/product.component';
     ProductDialogComponent,
     AppSidebarComponent,
     HomeComponent,
-    ProductComponent
+    ProductComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
