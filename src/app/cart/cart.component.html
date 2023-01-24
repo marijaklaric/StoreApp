@@ -1,26 +1,49 @@
 <div class="container">
   <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
   <div class="row">
-    <div class="col-md-9">
-      <div class="row">
-        <div class="col-md-4 mb-5" *ngFor="let product of carts">
-          <div class="card h-100">
-            <div class="bg-image m-3" mdbRipple rippleColor="light" style="text-align: center; align-self: center;">
-              <img [src]="product.image" class="img-fluid" style="width: auto; height: 150px; object-fit: contain;" />
-            </div>
-            <div class="card-body">
-              <h4 mat-card-title style="text-align: center;"><b>{{ product.title }}</b></h4>
-              <p class="card-text" style="text-align: center;">{{product.price}}</p>
-            </div>
-<!--             <div class="card-footer" style="text-align: center;">
+    <div class="col-md-6 mb-5" *ngFor="let cart of carts">
+      <table class="table table-bordered" style="text-align: center;">
+        <thead class="thead-dark">
+          <tr>
+            <th></th>
+            <th>Product Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let prod of cart.cartPoducts">
+            <td>
+              <div class="bg-image m-3" mdbRipple rippleColor="light" style="text-align: center; align-self: center;">
+                <img [src]="prod.product.image" class="img-fluid"
+                  style="width: auto; height: 150px; object-fit: contain;" />
+              </div>
+            </td>
+            <td>
+              <div style="text-align:start;">
+                <p><b>Title: </b>{{ prod.product.title }}</p>
+                <p><b>Price: </b>{{ prod.product.price }}</p>
+                <p><b>Category: </b>{{ prod.product.category }}</p>
+                <p><b>Quantity: </b>{{ prod.quantity }}</p>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>
+            </td>
+            <td style="text-align: end;">
+              <p style="text-transform: capitalize;">{{cart?.cartUser?.name?.firstname }} {{cart?.cartUser?.name?.lastname}}</p>
+              <p>{{cart?.cartUser?.email }}, {{cart?.cartUser?.phone }}</p>
+              <p>{{cart.date | date}}</p></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--             <div class="card-footer" style="text-align: center;">
               <button mat-raised-button (click)="openDialog(product)"
                 style="text-transform: uppercase; margin-right: 2%;">Preview</button>
               <button mat-raised-button (click)="editProduct(product.id)"
                 style="text-transform: uppercase;">Edit</button>
             </div> -->
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
