@@ -22,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './products/product/product.component';
 import { ConfirmationDialogComponent } from './products/confirmation-dialog/confirmation-dialog.component';
+import { AddProductComponent } from './products/product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ConfirmationDialogComponent } from './products/confirmation-dialog/conf
     AppSidebarComponent,
     HomeComponent,
     ProductComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

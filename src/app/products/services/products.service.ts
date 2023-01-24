@@ -39,4 +39,8 @@ export class ProductsService {
     deleteProduct(productId: number): Observable<Products> {
       return this.http.delete<Products>(environment.baseAPI + "products/" + productId);
     }
+
+    postProduct(product: Products): Observable<Products> {
+      return this.http.post<Products>(environment.baseAPI + "products", product);
+    }
   }

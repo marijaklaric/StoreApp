@@ -70,4 +70,8 @@ export class ProductsComponent implements OnInit {
   editProduct(productId){
    this.router.navigateByUrl("products/" + productId);
   }
+
+  addNewProduct(): void {
+    this.router.navigateByUrl('/add-products');
+  }
 }

@@ -13,13 +13,13 @@ import { ProductsService } from '../services/products.service';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class AddProductComponent implements OnInit {
   public productId: number;
   public product: Products;
   public form: FormGroup;
   public categories: [string];
   isLoaded: boolean = false;
-  isEditMode: boolean = true;
+  isEditMode: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,33 +31,18 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.isEditMode = true;
-    this.getRouteParams();
+    this.isEditMode = false;
+    this.addNew();
   }
 
-  getRouteParams() {
-    this.route.params
-      .subscribe(
-        (params: Params) => {
-          this.productId = params['id'];
-          if (this.productId != null) {
-            this.getProduct(this.productId);
-            this.getProductCategories();
-          }
-        }
-      );
-  }
-
-  getProduct(productId: number) {
-    this.productsService.getProduct(productId)
-      .subscribe(product => {
-        this.product = product;
-        this.isLoaded = true;
-        if (this.isLoaded == true) {
-          this.productForm();
-          this.form.disable();
-        }
-      });
+  addNew() {
+    this.product = new Products();
+    this.getProductCategories();
+    this.isLoaded = true;
+    if (this.isLoaded == true) {
+      this.productForm();
+      this.form.enable();
+    }
   }
 
   productForm() {
@@ -67,8 +52,8 @@ export class ProductComponent implements OnInit {
       price: new FormControl(this.product.price),
       description: new FormControl(this.product.description),
       category: new FormControl(this.product.category),
-      rate: new FormControl(this.product.rating.rate),
-      count: new FormControl(this.product.rating.count),
+      rate: new FormControl(this.product.rate),
+      count: new FormControl(this.product.count),
       image: new FormControl(this.product.image),
     });
   }
@@ -78,12 +63,18 @@ export class ProductComponent implements OnInit {
       .subscribe(productCategories => this.categories = productCategories);
   }
 
-
   onSubmit(formValue: FormGroup) {
-    this.productsService.putProduct(this.product.id, formValue.value).subscribe(product => this.product = product);
+    this.productsService.postProduct(formValue.value).subscribe(product => {
+      this.product = product;
+      alert("Product is successfully added.")
+      this.router.navigateByUrl('/products');
+    });
     console.log(this.product, "after save")
   }
 
+  onBack(): void {
+    this.router.navigateByUrl('/products');
+  }
 
   toggleEditMode() {
     if (this.form.disabled) {
@@ -94,18 +85,6 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  onBack(): void {
-    this.router.navigateByUrl('/products');
-  }
-
-  onDelete(formValue: FormGroup) {
-    if (confirm("Are you sure you want to delete product " + formValue.value.title + "?"))
-      this.productsService.deleteProduct(formValue.value.id).subscribe(res => {
-        this.router.navigateByUrl('/products');
-        alert("Product deleted successfully.");
-      }
-      )
-  }
 
   openConfirmationDialog() {
     const dialogConfig = new MatDialogConfig();
@@ -130,7 +109,7 @@ export class ProductComponent implements OnInit {
   onFileChange(event) {
     const reader = new FileReader();
 
-    if(event.target.files && event.target.files.length) {
+    if (event.target.files && event.target.files.length) {
       const [file] = event.target.files;
       reader.readAsDataURL(file);
 
@@ -140,11 +119,10 @@ export class ProductComponent implements OnInit {
 
         this.form.patchValue({
           //image: reader.result
-          image: file.name
+          image: file.name //save name bacouse can't create url
         });
       };
 
     }
   }
-
 }

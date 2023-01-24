@@ -6,6 +6,8 @@ export class Products {
   category: string;
   image: string;
   rating: Rating;
+  rate: string;
+  count: number;
 };
 
 export class Rating {
