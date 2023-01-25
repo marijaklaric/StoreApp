@@ -43,12 +43,11 @@ export class ProductComponent implements OnInit {
         (params: Params) => {
           this.productId = params['id'];
           if (this.productId != null) {
-            this.getProduct(this.productId);
             this.getProductCategories();
+            this.getProduct(this.productId);
           }
         }
       );
-      this.loading = false;
   }
 
   getProduct(productId: number) {
@@ -59,6 +58,7 @@ export class ProductComponent implements OnInit {
         if (this.isLoaded == true) {
           this.productForm();
           this.form.disable();
+          this.loading = false;
         }
       });
   }

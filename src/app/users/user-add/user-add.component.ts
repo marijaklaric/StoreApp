@@ -31,8 +31,8 @@ export class UserAddComponent implements OnInit {
     if (this.isLoaded == true) {
       this.userForm();
       this.form.enable();
+      this.loading = false;
     }
-    this.loading = false;
   }
 
   userForm() {

@@ -41,8 +41,8 @@ export class CartComponent implements OnInit {
         if (this.isLoaded == true) {
           this.getProducts()
         }
+        this.loading = false;
       });
-    this.loading = false;
   }
 
   getProducts() {

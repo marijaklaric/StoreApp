@@ -44,8 +44,8 @@ export class AddProductComponent implements OnInit {
     if (this.isLoaded == true) {
       this.productForm();
       this.form.enable();
+      this.loading = false;
     }
-    this.loading = false;
   }
 
   productForm() {

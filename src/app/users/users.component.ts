@@ -28,11 +28,13 @@ export class UsersComponent implements OnInit {
 
   getUsers() {
     this.usersService.getUsers()
-      .subscribe(users => this.users = users);
-      this.loading = false;
+      .subscribe(users => {
+        this.users = users;
+        this.loading = false;
+      });
   }
 
-  openEditUser(userId: number){
+  openEditUser(userId: number) {
     this.router.navigateByUrl("/users/" + userId);
   }
 

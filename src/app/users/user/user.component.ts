@@ -38,7 +38,6 @@ export class UserComponent implements OnInit {
           }
         }
       );
-      this.loading = false;
   }
 
   getUser(userId: number) {
@@ -49,6 +48,7 @@ export class UserComponent implements OnInit {
         if (this.isLoaded == true) {
           this.userForm();
           this.form.disable();
+          this.loading = false;
         }
       });
   }

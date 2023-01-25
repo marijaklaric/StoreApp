@@ -40,17 +40,22 @@ export class ProductsComponent implements OnInit {
           }
         }
       );
-      this.loading = false;
   }
 
   getProducts() {
     this.productsService.getProducts()
-      .subscribe(products => this.products = products);
+      .subscribe(products => {
+        this.products = products;
+        this.loading = false;
+      });
   }
 
   getCategoryProducts(categoryId: string) {
     this.productsService.getProductsByCategory(categoryId)
-      .subscribe(products => this.products = products);
+      .subscribe(products => {
+        this.products = products;
+        this.loading = false;
+      });
   }
 
   openDialog(product: any): void {
@@ -64,14 +69,14 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-/*   getProducts() {
-    this.productsService.getLimitedProducts(this.limit).subscribe(data => {
-      this.products = data;
-    });
-  } */
+  /*   getProducts() {
+      this.productsService.getLimitedProducts(this.limit).subscribe(data => {
+        this.products = data;
+      });
+    } */
 
-  editProduct(productId){
-   this.router.navigateByUrl("products/" + productId);
+  editProduct(productId) {
+    this.router.navigateByUrl("products/" + productId);
   }
 
   addNewProduct(): void {
