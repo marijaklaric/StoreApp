@@ -10,7 +10,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let prod of cart.cartPoducts">
+          <tr *ngFor="let prod of cart.poductsData">
             <td>
               <div class="bg-image m-3" mdbRipple rippleColor="light" style="text-align: center; align-self: center;">
                 <img [src]="prod.product.image" class="img-fluid"
@@ -32,8 +32,8 @@
             <td>
             </td>
             <td style="text-align: end;">
-              <p style="text-transform: capitalize;">{{cart?.cartUser?.name?.firstname }} {{cart?.cartUser?.name?.lastname}}</p>
-              <p>{{cart?.cartUser?.email }}, {{cart?.cartUser?.phone }}</p>
+              <p style="text-transform: capitalize;">{{cart?.userDetails?.name?.firstname }} {{cart?.userDetails?.name?.lastname}}</p>
+              <p>{{cart?.userDetails?.email }}, {{cart?.userDetails?.phone }}</p>
               <p>{{cart.date | date}}</p></td>
           </tr>
         </tbody>

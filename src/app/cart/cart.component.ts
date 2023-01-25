@@ -50,11 +50,11 @@ export class CartComponent implements OnInit {
       //get user informations
       this.userService.getUser(parseInt(cart.userId))
         .subscribe(user => {
-          cart.cartUser = user;
+          cart.userDetails = user;
         });
 
       //get product informations
-      cart.cartPoducts = new Array();
+      cart.poductsData = new Array();
       cart.products.forEach(product => {
         this.productService.getProduct(product.productId)
           .subscribe(prod => {
@@ -62,7 +62,7 @@ export class CartComponent implements OnInit {
             productData.product = new Products;
             productData.product = prod;
             productData.quantity = product.quantity;
-            cart.cartPoducts.push(productData);
+            cart.poductsData.push(productData);
           });
       });
     });

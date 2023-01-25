@@ -7,8 +7,8 @@ export class Cart {
   date: string;
   products: [{productId: number; quantity: number;}];
   __v: number;
-  cartPoducts: ProductData[];
-  cartUser: User;
+  poductsData: ProductData[];
+  userDetails: User;
 };
 
 export class ProductData {
