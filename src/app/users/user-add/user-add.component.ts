@@ -59,7 +59,6 @@ export class UserAddComponent implements OnInit {
 
   onSubmit(formValue: FormGroup) {
     this.userService.postUser(formValue.value).subscribe(user => this.user = user);
-    console.log(this.user, "after save")
   }
 
 }

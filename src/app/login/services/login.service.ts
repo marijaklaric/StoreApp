@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable, Subject, throwError } from 'rxjs';
-import { Credentials } from '../models/credentials.model';
+import { throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
@@ -10,24 +9,26 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class LoginService {
-  private isLoggedIn = new Subject<boolean>();
-  public loggedIn = this.isLoggedIn.asObservable();
-
   constructor(
     private http: HttpClient,
     private router: Router
   ) {
-   }
+  }
+
+  checkIsLoggedIn() {
+    return !!localStorage.getItem("token");
+  }
 
   login(username: string, password: string) {
     return this.http.post<any>(environment.baseAPI + "auth/login", { username, password })
       .pipe(map(res => {
         localStorage.setItem("token", res.token);
-        this.changeLoggedInStatus(true);
+        this.router.navigateByUrl("/");
         return res.token;
       }))
       .pipe(catchError(err => {
         if (err.status === 401) {
+          alert(err.error);
           return throwError(err.error);
         } else {
           return throwError(err);
@@ -37,12 +38,7 @@ export class LoginService {
 
   logout() {
     localStorage.removeItem("token");
-    this.changeLoggedInStatus(false);
     this.router.navigateByUrl("/login");
   }
 
-
-  changeLoggedInStatus(value: boolean) {
-    this.isLoggedIn.next(value);
-  }
 }

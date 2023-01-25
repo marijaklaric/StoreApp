@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { AuthGuard } from './login/services/auth.guard';
+import { AuthGuard, IsLoggedInAuthGuard } from './login/services/auth.guard';
 import { AddProductComponent } from './products/product/add-product.component';
 import { ProductComponent } from './products/product/product.component';
 import { ProductsComponent } from './products/products.component';
@@ -13,21 +13,21 @@ import { UserComponent } from './users/user/user.component';
 import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent},
-  { path: 'products', component: ProductsComponent},
-  { path: 'products/:id', component: ProductComponent},
-  { path: 'add-products', component: AddProductComponent},
-  { path: 'products/category/:id', component: ProductsComponent},
-  { path: 'users', component: UsersComponent},
-  { path: 'users/:id', component: UserComponent},
-  { path: 'add-user', component: UserAddComponent},
-  { path: 'carts', component: CartComponent},
-  { path: 'login', component: LoginComponent}
+  { path: '', component: HomeComponent, canActivate: [AuthGuard]},
+  { path: 'products', component: ProductsComponent, canActivate: [AuthGuard]},
+  { path: 'products/:id', component: ProductComponent, canActivate: [AuthGuard]},
+  { path: 'add-products', component: AddProductComponent, canActivate: [AuthGuard]},
+  { path: 'products/category/:id', component: ProductsComponent, canActivate: [AuthGuard]},
+  { path: 'users', component: UsersComponent, canActivate: [AuthGuard]},
+  { path: 'users/:id', component: UserComponent, canActivate: [AuthGuard]},
+  { path: 'add-user', component: UserAddComponent, canActivate: [AuthGuard]},
+  { path: 'carts', component: CartComponent, canActivate: [AuthGuard]},
+  { path: 'login', component: LoginComponent, canActivate: [IsLoggedInAuthGuard]}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [AuthGuard]
+  providers: [AuthGuard, IsLoggedInAuthGuard]
 })
 export class AppRoutingModule { }

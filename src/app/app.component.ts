@@ -9,25 +9,7 @@ import { LoginService } from './login/services/login.service';
 })
 export class AppComponent {
   title = 'FakeStoreAPI';
-  isUserLogged = false;
 
-  constructor(private loginService: LoginService, private router: Router) {
-    this.loginService.loggedIn.subscribe(isLoggedIn => {
-      this.isUserLogged = isLoggedIn;
-      if(!isLoggedIn){
-        this.router.navigateByUrl("/login")
-      }
-      else{
-        this.router.navigateByUrl("/");
-      }
-    });
-
-    if(localStorage.getItem("token")){
-      this.isUserLogged = true;
-    }
-    else{
-      this.isUserLogged = false;
-      this.router.navigateByUrl("/login");
-    }
+  constructor(public loginService: LoginService) {
   }
 }

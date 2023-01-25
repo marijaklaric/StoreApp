@@ -72,7 +72,6 @@ export class AddProductComponent implements OnInit {
       alert("Product is successfully added.")
       this.router.navigateByUrl('/products');
     });
-    console.log(this.product, "after save")
   }
 
   onBack(): void {
