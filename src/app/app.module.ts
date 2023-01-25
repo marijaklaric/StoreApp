@@ -30,6 +30,8 @@ import { UserAddComponent } from './users/user-add/user-add.component';
 import { CartComponent } from './cart/cart.component';
 import { CartService } from './cart/services/cart.service';
 import { NgxLoadingModule } from 'ngx-loading';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './login/services/login.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { NgxLoadingModule } from 'ngx-loading';
     UsersComponent,
     UserComponent,
     UserAddComponent,
-    CartComponent
+    CartComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +70,8 @@ import { NgxLoadingModule } from 'ngx-loading';
   providers: [
     ProductsService,
     UsersService,
-    CartService
+    CartService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })
