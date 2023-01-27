@@ -28,7 +28,7 @@ export class LoginService {
       }))
       .pipe(catchError(err => {
         if (err.status === 401) {
-          alert(err.error);
+          //alert(err.error);
           return throwError(err.error);
         } else {
           return throwError(err);

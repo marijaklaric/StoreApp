@@ -66,6 +66,7 @@ import { LoginService } from './login/services/login.service';
     ReactiveFormsModule,
     NgbModule,
     NgxLoadingModule.forRoot({}),
+    FormsModule
   ],
   providers: [
     ProductsService,

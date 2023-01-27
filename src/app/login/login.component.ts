@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   public form: FormGroup;
   public loading: boolean = false;
   public token: string;
+  public errorMessage: string;
 
   constructor(
     private loginService: LoginService,
@@ -41,6 +42,7 @@ export class LoginComponent implements OnInit {
       },
         (err) => {
           // handle error
+          this.errorMessage = err
           console.log(err);
         });
   }
