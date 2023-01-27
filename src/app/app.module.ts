@@ -32,6 +32,7 @@ import { CartService } from './cart/services/cart.service';
 import { NgxLoadingModule } from 'ngx-loading';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/services/login.service';
+import { LoggedUserComponent } from './users/logged-user/logged-user.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { LoginService } from './login/services/login.service';
     UserComponent,
     UserAddComponent,
     CartComponent,
-    LoginComponent
+    LoginComponent,
+    LoggedUserComponent
   ],
   imports: [
     BrowserModule,
